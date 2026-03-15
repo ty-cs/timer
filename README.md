@@ -39,6 +39,7 @@ Set these variables in your `~/.zshrc` **before** sourcing oh-my-zsh (or anywher
 | `TIMER_PRECISION`  | `3`                              | Decimal places for the seconds value                  |
 | `TIMER_COLOR`      | `white`                          | Any key from oh-my-zsh's `$fg[]` array (e.g. `cyan`, `yellow`, `red`).         |
 | `TIMER_FORMAT`     | `"Time: %s"`                     | Output format; use `%s` as the placeholder.                                     |
+| `TIMER_SKIP_CMDS`  | `()` (none)                      | List of commands to skip timing (e.g. `(clear vi vim)`).                        |
 
 ### Examples
 
@@ -59,6 +60,12 @@ Show two decimal places with a custom label:
 ```sh
 TIMER_PRECISION=2
 TIMER_FORMAT="▶ %s"
+```
+
+Skip timing for specific commands:
+
+```sh
+TIMER_SKIP_CMDS=(clear vi vim)
 ```
 
 ## How it works

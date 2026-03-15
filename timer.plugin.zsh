@@ -8,6 +8,7 @@
 # TIMER_PRECISION  — decimal places for seconds (default: 3)
 # TIMER_COLOR      — any color name valid in %F{} e.g. red, cyan, yellow (default: white)
 # TIMER_FORMAT     — use %s as placeholder for elapsed time (default: "Time: %s")
+# TIMER_SKIP_CMDS  — list of commands to skip timing (default: empty, e.g. (clear vi vim))
 
 zmodload zsh/datetime
 
@@ -21,6 +22,10 @@ __timer_format_duration() {
 }
 
 __timer_preexec() {
+  local cmd="${1%% *}"
+  if (( ${+TIMER_SKIP_CMDS} )) && (( ${TIMER_SKIP_CMDS[(Ie)$cmd]} )); then
+    return
+  fi
   __timer_cmd_start_time=$EPOCHREALTIME
 }
 
