@@ -72,6 +72,11 @@ TIMER_SKIP_CMDS=(clear vi vim)
 
 The plugin hooks into zsh's `preexec` (records `$EPOCHREALTIME` when a command starts) and `precmd` (computes the difference and prints the formatted duration).
 
+## Related Projects
+
+- [zsh-command-time](https://github.com/popstas/zsh-command-time) — Show execution time for long commands in zsh.
+- [ohmyzsh/timer](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/timer/timer.plugin.zsh) — The built-in oh-my-zsh timer plugin.
+
 ## License
 
 MIT
